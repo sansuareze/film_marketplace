@@ -1,11 +1,12 @@
-class EquipmentsController < ApplicationController
+class EquipmentController < ApplicationController
+  before_action :set_equipment, only: [:show]
+
   def index
     @equipments = Equipment.all
   end
 
   def new
     @equipment = Equipment.new
-    raise
   end
 
   def create
@@ -16,14 +17,13 @@ class EquipmentsController < ApplicationController
       redirect_to equipment_path, notice: 'Equipment was successfully created.'
     else
       render :new
+    end
   end
 
   def show
-    @equipment = Equipment.find(set_equipment)
+    @booking = Booking.new
   end
 
-
-  end
   private
 
   def set_equipment
