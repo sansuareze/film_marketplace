@@ -1,7 +1,14 @@
+<div class = "cardcontainer">
 <% @equipments.each do |e|%>
+  <div class = "card">
   <p>Title: <%= e.title %></p>
-  <p>Daily Price: <%= e.daily_price %></p>
+  <p>Daily Price: <%= e.daily_price %> euros</p>
   <p>Description: <%= e.description%></p>
   <p>Category: <%= e.category %></p>
   <p>State: <%= e.state %></p>
+  <%= button_to 'Show more', equipment_path(e), method: :get, class: "btn-primary"%>
+  <br>
+  <br>
+  </div>
 <% end %>
+</div>
