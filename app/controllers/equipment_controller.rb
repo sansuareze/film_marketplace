@@ -11,10 +11,10 @@ class EquipmentController < ApplicationController
 
   def create
     @equipment = Equipment.new(equipment_params)
-    @user = User.find(current_user)
+    @user = current_user
     @equipment.user = @user
     if @equipment.save
-      redirect_to equipment_path, notice: 'Equipment was successfully created.'
+      redirect_to equipment_path(@equipment), notice: 'Equipment was successfully created.'
     else
       render :new
     end
