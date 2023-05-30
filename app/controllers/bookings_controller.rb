@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show]
+  before_action :set_equipment, only: [:new, :create]
   def index
     @bookings = Booking.all
   end
@@ -10,26 +11,31 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @user = User.find(current_user)
+    @user = current_user
     @booking.user = @user
+    @booking.equipment = @equipment
     if @booking.save
-      redirect_to booking_path, notice: 'Booking was successfully created.'
+      redirect_to equipment_booking_path(@equipment, @booking), notice: 'Booking was successfully created.'
     else
-      render :new
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def show
-    @booking = Booking.find(@booking)
+    @booking = Booking.find(params[:id])
   end
 
-  end
   private
+
+  def set_equipment
+    @equipment = Equipment.find(params[:equipment_id])
+  end
 
   def set_booking
     @booking = Booking.find(params[:id])
   end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :total_price, :status)
+    params.require(:booking).permit(:start_date, :end_date)
   end
 end

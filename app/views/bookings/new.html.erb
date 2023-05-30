@@ -1,0 +1,9 @@
+<div class="container mt-5">
+  <%= simple_form_for [@equipment, @booking] do |f| %>
+    <%= f.input :start_date %>
+
+    <%= f.input :end_date %>
+    <%= f.button :submit %>
+  <% end %>
+
+</div>
