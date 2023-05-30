@@ -1,13 +1,19 @@
+<h2 class = "d-flex justify-content-center">Post a filming equipment you wish to sell!</h2>
+<br>
+<div class = "new-equipment-form">
 <%= simple_form_for(@equipment) do |f| %>
-  <%= f.input :image, as: :file %>
+  <%= f.input :photo, as: :file %>
 
   <%= f.input :title %>
+
+  <%= f.input :description %>
 
   <%= f.input :daily_price %>
 
   <%= f.input :category, collection: [["Camera", "camera"], ["Lighting", "lighting"], ["Sound", "sound"]] %>
 
-  <%= f.input :state, collection: [["Pending", "pending"], ["Approved", "approved"], ["Completed", "completed"], ["Rejected", "rejected"]] %>
+  <%= f.input :state, collection: [["New", "new"], ["Used", "used"], ["Decayed", "decayed"]] %>
 
-  <%= f.button :submit %>
+  <%= f.submit "Post My Equipment", class: "btn btn-primary" %>
 <% end %>
+</div>
