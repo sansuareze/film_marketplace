@@ -25,20 +25,6 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
-  def accept
-    booking = Booking.find(params[:id])
-    booking.update(status: true)
-    @booking.save
-    redirect_to booking_path(booking)
-  end
-
-  def decline
-    booking = Booking.find(params[:id])
-    booking.update(status: false)
-    @booking.save
-    redirect_to booking_path(booking)
-  end
-
   private
 
   def set_equipment

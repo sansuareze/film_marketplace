@@ -1,6 +1,6 @@
 <div class="container mt-5">
 
-  <% if current_user.id == @booking.user_id %>
+  <% if current_user == @booking.user_id %>
     <h2> <b><%= current_user.email%></b>, <small>your booking request has been successfully created.</small> </h2>
     <p>Your booking for the <b><%= @booking.equipment.title %></b> will be replayed within the next 24 hours</p>
     <p>Request status: <%= @booking.status %> </p>
@@ -22,10 +22,16 @@
     <h3>Booking information:</h3>
     <p>From: <b><%= @booking.start_date %></b></p>
     <p>To: <b><%= @booking.end_date %></b></p>
+     <% start_date = @booking.start_date.to_date %>
+    <% end_date = @booking.end_date.to_date %>
     <% total_days = (end_date - start_date).to_i + 1 %>
     <p>Total days: <b>€ <%= total_days %></b></p>
     <% total_cost = total_days * 10 %>
     <p>Total price: <b>€ <%= total_cost %></b> </p>
+
+    <%= link_to 'Accept', accept_booking_path(@booking), class: "btn btn-success", method: :patch %>
+    <%= link_to 'Decline', decline_booking_path(@booking), class: "btn btn-success", method: :patch %>
+
 
     <a href="#" class="btn btn-success">Accept</a> <a href="#" class="btn btn-danger">Decline</a>
   <% end %>
