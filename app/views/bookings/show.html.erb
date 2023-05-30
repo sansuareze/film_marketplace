@@ -22,8 +22,6 @@
     <h3>Booking information:</h3>
     <p>From: <b><%= @booking.start_date %></b></p>
     <p>To: <b><%= @booking.end_date %></b></p>
-    <% start_date = @booking.start_date.to_date %>
-    <% end_date = @booking.end_date.to_date %>
     <% total_days = (end_date - start_date).to_i + 1 %>
     <p>Total days: <b>€ <%= total_days %></b></p>
     <% total_cost = total_days * 10 %>
