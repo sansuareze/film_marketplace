@@ -21,7 +21,6 @@ class EquipmentController < ApplicationController
   end
 
   def show
-    @booking = Booking.new
   end
 
   private
@@ -31,6 +30,6 @@ class EquipmentController < ApplicationController
   end
 
   def equipment_params
-    params.require(:equipment).permit(:title, :description, :category, :state, :daily_price)
+    params.require(:equipment).permit(:title, :description, :category, :state, :daily_price, :photo)
   end
 end

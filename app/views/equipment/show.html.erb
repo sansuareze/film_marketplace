@@ -1,5 +1,12 @@
-<p><%= @equipment.title %></p>
-<p><%= @equipment.daily_price %></p>
-<p><%= @equipment.description%></p>
-<p><%= @equipment.category %></p>
-<p><%= @equipment.state %></p>
+<div class = "descriptioncontainer">
+  <h2 class = "d-flex justify-content-center"><%= @equipment.title %></h2>
+  <% if @equipment.photo.key %>
+  <%= cl_image_tag @equipment.photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+  <p>Description: <%= @equipment.description%></p>
+  <p>Category: <%= @equipment.category %></p>
+  <p>State: <%= @equipment.state %></p>
+  <h4>€<%= @equipment.daily_price %>.00</h4>
+  <!--<%= button_to 'I Wanna Book It!', new_equipment_booking_path, method: :get, class: "btn-primary"%> -->
+  <%= link_to "Back to postings", equipment_index_path %>
+</div>
