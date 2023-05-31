@@ -1,6 +1,7 @@
 <div class = "descriptioncontainer">
   <h2 class = "d-flex justify-content-center"><%= @equipment.title %></h2>
   <% if @equipment.photo.key %>
+
   <%= cl_image_tag @equipment.photo.key, height: 300, width: 325%>
   <% end %>
   <p>Description: <%= @equipment.description%></p>
