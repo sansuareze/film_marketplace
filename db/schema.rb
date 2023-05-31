@@ -48,7 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_095937) do
     t.datetime "start_date"
     t.datetime "end_date"
     t.integer "total_price"
-    t.string "status", default: "pending"
+    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["equipment_id"], name: "index_bookings_on_equipment_id"

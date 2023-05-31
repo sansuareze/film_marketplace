@@ -8,9 +8,9 @@
 require "open-uri"
 puts "destroying all"
 
+Booking.destroy_all
 Equipment.destroy_all
 User.destroy_all
-Booking.destroy_all
 
 puts "seeding users"
 
