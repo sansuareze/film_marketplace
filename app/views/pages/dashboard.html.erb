@@ -6,7 +6,6 @@
       <h2>You have no bookings</h2>
     <% else %>
       <% @bookings.each do |booking|%>
-        <% if current_user.id == booking.user_id %>
           <h4><%= booking.equipment.title %></h4>
           <p>From user: <b><%= booking.user.email %></b></p>
           <p><%= booking.start_date %></p>
@@ -19,18 +18,16 @@
           <% total_cost = total_days * integer_price %>
           <p>Total price: <b>€ <%= total_cost %></b> </p>
           <hr>
-        <% end %>
       <% end %>
     <% end %>
     </div>
 
     <div class="col-md-6">
-      <% if @bookings.empty? %>
-       <h2>You have no requests</h2>
-      <% else %>
-        <% @bookings.each do |booking| %>
-          <% if current_user.id == @equipment.user_id %>
-            <h3> You have a new booking request </h3>
+      <% @equipment.each do |equipment| %>
+        <% if equipment.bookings.empty? %>
+          <h2>You have no requests</h2>
+        <% else %>
+           <% equipment.bookings.each do |booking| %>
             <p> Request from: <b><%= booking.user.email %> </b></p>
             <hr>
             <h3>Booking information:</h3>
@@ -43,7 +40,6 @@
             <% integer_price = booking.equipment.daily_price.to_i %>
             <% total_cost = total_days * integer_price %>
             <p>Total price: <b>€ <%= total_cost %></b> </p>
-            <% @equipment = Equipment.find(params[:equipment_id]) %>
             <%= link_to "Accept",  equipment_update_booking_status_accept_path(@equipment, booking), class: "btn btn-success", data: {turbo_method: :patch, turbo_confirm: "You're about to accept this request. Do you want to proceed?"} %>
             <%= link_to "Decline", equipment_update_booking_status_decline_path(@equipment, booking), class: "btn btn-danger", data: {turbo_method: :patch, turbo_confirm: "You're about decline this booking. Are you sure?"} %>
           <% end %>
