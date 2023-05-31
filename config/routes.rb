@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     patch 'bookings/:id/update_accept', to: 'bookings#update_accept', as: 'update_booking_status_accept'
     patch 'bookings/:id/update_decline', to: 'bookings#update_decline', as: 'update_booking_status_decline'
   end
+
+  resources :bookings, only: [:index]
   # Defines the root path route ("/")
   # root "articles#index"
 end
