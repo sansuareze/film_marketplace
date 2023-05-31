@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show]
-  before_action :set_equipment, only: [:new, :create]
+  before_action :set_booking, only: [:show, :update_accept, :update_decline]
+  before_action :set_equipment, only: [:new, :create, :update_accept, :update_decline]
+
   def index
     @bookings = Booking.all
   end
@@ -18,11 +19,21 @@ class BookingsController < ApplicationController
       redirect_to equipment_booking_path(@equipment, @booking), notice: 'Booking was successfully created.'
     else
       render :new, status: :unprocessable_entity
+      raise
     end
   end
 
   def show
     @booking = Booking.find(params[:id])
+  end
+
+  def update_accept
+    @booking.status = "accepted"
+
+  end
+
+  def update_decline
+    @booking.status = "declined"
   end
 
   private
