@@ -4,7 +4,7 @@
 <% @equipments.each do |e|%>
   <div class = "card my-3">
   <% if e.photo.key %>
-    <%= cl_image_tag e.photo.key, height: 150, width: 400, crop: :fill %>
+    <%= cl_image_tag e.photo.key, height: 300, width: 325 %>
   <% end %>
   <h4><%= e.title %></h4>
   <p>Daily Price: €<%= e.daily_price %></p>
