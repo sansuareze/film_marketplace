@@ -1,9 +1,17 @@
 <div class="container mt-5">
-  <%= simple_form_for [@equipment, @booking] do |f| %>
-    <%= f.input :start_date %>
+ <div class="row">
+    <div class="col-lg-5 offset-lg-1">
+    <h2>Booking request for <b><%= @equipment.title %></b> </h2>
+    <hr>
+        <%= simple_form_for [@equipment, @booking] do |f| %>
+          <%= f.input :start_date %>
 
-    <%= f.input :end_date %>
-    <%= f.button :submit %>
-  <% end %>
-
+          <%= f.input :end_date %>
+          <%= f.button :submit, class: "btn btn-primary" %>
+        <% end %>
+    </div>
+    <div class="col-lg-4 offset-lg-1">
+      <%= cl_image_tag @equipment.photo.key, class:"photo"%>
+    </div>
+ </div>
 </div>
