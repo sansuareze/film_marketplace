@@ -74,6 +74,9 @@ end
 
 gem "devise"
 gem "cloudinary"
+gem "pg_search"
+gem "ransack"
+gem 'jquery-rails'
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]

@@ -3,6 +3,8 @@ class EquipmentController < ApplicationController
 
   def index
     @equipments = Equipment.all
+    @q = Equipment.ransack(params[:q])
+    @equipments = @q.result(distinct: true)
   end
 
   def new
@@ -23,7 +25,7 @@ class EquipmentController < ApplicationController
   def show
     @booking = Booking.new
   end
-  
+
 
   private
 
