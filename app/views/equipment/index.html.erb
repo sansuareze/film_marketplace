@@ -1,5 +1,5 @@
-<h1 class = "d-flex justify-content-center my-3">All Recent Postings</h1>
-<center><%= button_to 'Post an Equipment', new_equipment_path, method: :get, class: "btn-primary btn-lg"%></center>
+<h1 class = "d-flex justify-content-center">All Recent Postings</h1>
+<center><%= button_to 'Post an Equipment', new_equipment_path, method: :get, class: "btn btn-primary"%></center>
 <div class = "cardcontainer">
 <% @equipments.each do |e|%>
   <div class = "card my-5">
@@ -11,7 +11,6 @@
     <p class = "edescription mx-4"> <%= e.description%></p>
     <p><%= icon e.state_icon, class: 'fa-lg' %> <%= e.state.capitalize %> </p>
     <%= button_to 'Show more', equipment_path(e), method: :get, class: "btn-primary btn-lg"%>
-    helo
     <br>
     <br>
   </div>

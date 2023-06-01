@@ -1,11 +1,11 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-6">
+  <div class="row pt-5">
+    <div class="col-md-6 p-5">
     <h1>My bookings</h1>
     <% if @bookings.empty? %>
       <h2>You have no bookings</h2>
     <% else %>
-      <% @bookings.each do |booking|%>
+      <% @bookings.reverse.each do |booking|%>
           <h4><%= booking.equipment.title %></h4>
           <p>From user: <b><%= booking.user.email %></b></p>
           <p><%= booking.start_date %></p>
@@ -22,14 +22,15 @@
     <% end %>
     </div>
 
-    <div class="col-md-6">
-      <% @equipment.each do |equipment| %>
+    <div class="col-md-6 p-5">
+      <% @equipment.reverse.each do |equipment| %>
         <% if equipment.bookings.empty? %>
           <h2>You have no requests</h2>
         <% else %>
+          <h2>Waiting for your approval</h2>
            <% equipment.bookings.each do |booking| %>
+           <hr>
             <p> Request from: <b><%= booking.user.email %> </b></p>
-            <hr>
             <h3>Booking information:</h3>
             <p>From: <b><%= booking.start_date %></b></p>
             <p>To: <b><%= booking.end_date %></b></p>

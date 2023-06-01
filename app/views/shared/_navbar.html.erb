@@ -1,8 +1,12 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
+    <div>
+    <a href="/" class="logo">
     <i class="fa-solid fa-film icon" >
     </i>
-    <h1 class="center">MOVIE EQUIPMENT AHORA </h1>
+    <b>MOVIE EQUIPMENT AHORA</b>
+    </a>
+    </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"  ></span>
     </button>
@@ -14,10 +18,13 @@
             <%= link_to "Home", root_path, class:"nav-link" %>
           </li>
           <li class="nav-item active">
-            <%= link_to "Index", equipment_index_path(@equipment), class:"nav-link" %>
+            <%= link_to "Rent", equipment_index_path(@equipment), class:"nav-link" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "Publish", new_equipment_path(@equipment), class:"nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "My Bookings", bookings_path, class: "nav-link" %>
+            <%= link_to "My Bookings", dashboard_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
