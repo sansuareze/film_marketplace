@@ -7,4 +7,14 @@ class Equipment < ApplicationRecord
   validates :daily_price, presence: true
   validates :category, presence: true
   validates :photo, presence: true
+  def state_icon
+    case state
+    when 'New'
+      'fas fa-star' + ' text-warning'
+    when 'Used'
+      'fas fa-recycle' + ' text-success'
+    when 'Decayed'
+      'fas fa-skull-crossbones' ' text-danger'
+    end
+  end
 end
