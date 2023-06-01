@@ -16,10 +16,9 @@ class BookingsController < ApplicationController
     @booking.user = @user
     @booking.equipment = @equipment
     if @booking.save
-      redirect_to equipment_booking_path(@equipment, @booking), notice: 'Booking was successfully created.'
+      redirect_to dashboard_path(@equipment), notice: 'Booking was successfully created.'
     else
       render :new, status: :unprocessable_entity
-      raise
     end
   end
 
@@ -29,11 +28,12 @@ class BookingsController < ApplicationController
 
   def update_accept
     @booking.status = "accepted"
-
+    @booking.save
   end
 
   def update_decline
     @booking.status = "declined"
+    @booking.save
   end
 
   private

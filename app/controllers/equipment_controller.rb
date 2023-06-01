@@ -10,6 +10,8 @@ class EquipmentController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: {equipment: equipment})
       }
     end
+    @q = Equipment.ransack(params[:q])
+    @equipments = @q.result(distinct: true)
   end
 
   def new
@@ -35,6 +37,7 @@ class EquipmentController < ApplicationController
       }]
 
   end
+
 
   private
 

@@ -10,4 +10,19 @@ class Equipment < ApplicationRecord
   validates :address, presence: true
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+  def state_icon
+    case state
+    when 'New'
+      'fas fa-star' + ' text-warning'
+    when 'Used'
+      'fas fa-recycle' + ' text-success'
+    when 'Decayed'
+      'fas fa-skull-crossbones' ' text-danger'
+    end
+  end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["category", "created_at", "daily_price", "description", "id", "state", "title", "updated_at", "user_id"]
+  end
+
 end
