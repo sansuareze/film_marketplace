@@ -7,6 +7,9 @@ class Equipment < ApplicationRecord
   validates :daily_price, presence: true
   validates :category, presence: true
   validates :photo, presence: true
+  validates :address, presence: true
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
   def state_icon
     case state
     when 'New'
@@ -21,6 +24,5 @@ class Equipment < ApplicationRecord
   def self.ransackable_attributes(auth_object = nil)
     ["category", "created_at", "daily_price", "description", "id", "state", "title", "updated_at", "user_id"]
   end
-
 
 end
