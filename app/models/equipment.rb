@@ -17,4 +17,10 @@ class Equipment < ApplicationRecord
       'fas fa-skull-crossbones' ' text-danger'
     end
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["category", "created_at", "daily_price", "description", "id", "state", "title", "updated_at", "user_id"]
+  end
+
+
 end
