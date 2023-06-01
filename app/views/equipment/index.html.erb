@@ -1,7 +1,7 @@
 <h1 class = "d-flex justify-content-center">All Recent Postings</h1>
-<center><%= button_to 'Post an Equipment', new_equipment_path, method: :get, class: "btn-primary"%></center>
+<center><%= button_to 'Post an Equipment', new_equipment_path, method: :get, class: "btn btn-primary"%></center>
 <div class = "cardcontainer">
-<% @equipments.each do |e|%>
+<% @equipments.reverse.each do |e|%>
   <div class = "card my-3">
   <% if e.photo.key %>
     <%= cl_image_tag e.photo.key, height: 300, width: 325 %>
@@ -10,7 +10,7 @@
   <p>Daily Price: €<%= e.daily_price %></p>
   <p> <%= e.description%></p>
   <p>State: <%= e.state %></p>
-  <%= button_to 'Show more', equipment_path(e), method: :get, class: "btn-primary"%>
+  <%= button_to 'Show more', equipment_path(e), method: :get, class: "btn btn-primary"%>
   <br>
   <br>
   </div>
