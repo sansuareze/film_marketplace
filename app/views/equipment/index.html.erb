@@ -3,16 +3,17 @@
 <div class = "cardcontainer">
 <% @equipments.each do |e|%>
   <div class = "card my-5">
-  <% if e.photo.key %>
-    <%= cl_image_tag e.photo.key, height: 300, width: 325 %>
-  <% end %>
-  <h4 class = "etitle my-4"><strong><%= e.title %></strong></h4>
-  <p><strong>Daily Price:</strong> €<%= e.daily_price %></p>
-  <p class = "edescription mx-4"> <%= e.description%></p>
-  <p><%= icon e.state_icon, class: 'fa-lg' %> <%= e.state.capitalize %> </p>
-  <%= button_to 'Show more', equipment_path(e), method: :get, class: "btn-primary btn-lg"%>
-  <br>
-  <br>
+    <% if e.photo.key %>
+      <%= cl_image_tag e.photo.key, height: 300, width: 325 %>
+    <% end %>
+    <h4 class = "etitle my-4"><strong><%= e.title %></strong></h4>
+    <p><strong>Daily Price:</strong> €<%= e.daily_price %></p>
+    <p class = "edescription mx-4"> <%= e.description%></p>
+    <p><%= icon e.state_icon, class: 'fa-lg' %> <%= e.state.capitalize %> </p>
+    <%= button_to 'Show more', equipment_path(e), method: :get, class: "btn-primary btn-lg"%>
+    helo
+    <br>
+    <br>
   </div>
 <% end %>
 </div>
