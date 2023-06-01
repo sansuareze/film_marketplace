@@ -3,6 +3,13 @@ class EquipmentController < ApplicationController
 
   def index
     @equipments = Equipment.all
+    @markers = @equipments.geocoded.map do |equipment|
+      {
+        lat: equipment.latitude,
+        lng: equipment.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {equipment: equipment})
+      }
+    end
   end
 
   def new
@@ -22,6 +29,11 @@ class EquipmentController < ApplicationController
 
   def show
     @booking = Booking.new
+    @markers = [{
+        lat: @equipment.latitude,
+        lng: @equipment.longitude
+      }]
+
   end
 
   private
@@ -31,6 +43,6 @@ class EquipmentController < ApplicationController
   end
 
   def equipment_params
-    params.require(:equipment).permit(:title, :description, :category, :state, :daily_price, :photo)
+    params.require(:equipment).permit(:title, :description, :category, :state, :daily_price, :photo, :address)
   end
 end
