@@ -8,8 +8,8 @@
 <h1 class = "d-flex justify-content-center">All Recent Postings</h1>
 <center><%= button_to 'POST AN EQUIPMENT', new_equipment_path, method: :get, class: "btn btn-primary"%></center>
 <div class = "cardcontainer">
-<% @equipments.each do |e|%>
-  <div class = "card my-5">
+<% @equipments.reverse.each do |e|%>
+  <div class = "card my-5 animate__animated animate__fadeInUp">
     <% if e.photo.key %>
       <%= cl_image_tag e.photo.key, height: 300, width: 325 %>
     <% end %>

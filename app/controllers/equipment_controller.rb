@@ -38,7 +38,6 @@ class EquipmentController < ApplicationController
 
   end
 
-
   private
 
   def set_equipment
