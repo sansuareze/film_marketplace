@@ -1,24 +1,28 @@
-<div class = "descriptioncontainer bgcolor container">
-    <div class="row">
-      <div class="col-md-6" style="padding-left:0px">
+<div class = " bgcolor container-fluid">
+    <div class="row border" style="height:60vh; margin-top: 100px" >
+      <div class="col-md-4" style="padding-left:0px;height:100%; ">
       <% if @equipment.photo.key %>
 
         <%= cl_image_tag @equipment.photo.key, class:"photo"%>
         <% end %>
         </div>
-      <div class="col-md-6">
-      <h2 class = "d-flex justify-content-center"><%= @equipment.title %></h2>
+      <div class="col-md-4 cl" style="height: 100%; justify-content:center; text-align:center;">
+      <h2 class = "d-flex" style="margin-top: 5px; text-align:center; justify-content:center; "><%= @equipment.title %></h2>
       <p class="space">Description: <%= @equipment.description%></p>
         <p class="space">Category: <%= @equipment.category %></p>
         <p class="space">State: <%= @equipment.state %></p>
-        <h4 class="space">€<%= @equipment.daily_price %>.00</h4>
+        <h4 class="space-button">€<%= @equipment.daily_price %>.00</h4>
         <%= button_to 'I Wanna Rent It!', new_equipment_booking_path(@equipment, @booking), method: :get, class: "btn btn-primary"%>
         <br>
         <%= link_to "Back to postings", equipment_index_path, class:"padding-link"%>
       </div>
+      <div class="col-md-4">
+   <div style="width: 100%; height: 100%;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
+
     </div>
 </div>
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
