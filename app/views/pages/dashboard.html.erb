@@ -39,7 +39,7 @@
            <p><span>From: <%= booking.start_date %></span></p>
           <p><span>To: <%= booking.end_date %></span></p>
           <% if booking.status == "declined" %>
-              <p style="background:red#ccc; padding:7px; font-size:14px; font-weight:bold">Status: <b><%= booking.status %></b></p>
+              <p style="background:red; padding:7px; font-size:14px; font-weight:bold">Status: <b><%= booking.status %></b></p>
           <% elsif booking.status == "accepted" %>
             <p style="background:green; padding:7px; font-size:14px; font-weight:bold">Status: <b><%= booking.status %></b></p>
            <% else %>
@@ -80,12 +80,18 @@
                 </li>
 
               </ul>
+              <% if booking.status == "pending" %>
+                <div class="row">
+                  <div class="col-lg-1 offset-lg-8"><%= link_to "Accept",  equipment_update_booking_status_accept_path(equipment, booking), class: "btn btn-sm btn-success right", data: {turbo_method: :patch, turbo_confirm: "You're about to accept this request. Do you want to proceed?"} %></div>
+                  <div class="col-lg-1 offset-lg-1">
+                  <%= link_to "Decline", equipment_update_booking_status_decline_path(equipment, booking), class: "btn btn-sm btn-danger right",  data: {turbo_method: :patch, turbo_confirm: "You're about decline this booking. Are you sure?"} %></div>
+                </div>
 
-              <div class="row">
-              <div class="col-lg-1 offset-lg-8"><%= link_to "Accept",  equipment_update_booking_status_accept_path(equipment, booking), class: "btn btn-sm btn-success right", data: {turbo_method: :patch, turbo_confirm: "You're about to accept this request. Do you want to proceed?"} %></div>
-              <div class="col-lg-1 offset-lg-1">
-              <%= link_to "Decline", equipment_update_booking_status_decline_path(equipment, booking), class: "btn btn-sm btn-danger right",  data: {turbo_method: :patch, turbo_confirm: "You're about decline this booking. Are you sure?"} %></div>
-           </div>
+              <% else %>
+                <div class="row">
+                  <p class="text-end">You've <b><%= booking.status %></b> this booking</p>
+                </div>
+              <% end %>
 
 
             </div>
