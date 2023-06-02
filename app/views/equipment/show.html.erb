@@ -12,7 +12,11 @@
         <p class="space">Category: <%= @equipment.category %></p>
         <p class="space">State: <%= @equipment.state %></p>
         <h4 class="space-button">€<%= @equipment.daily_price %>.00</h4>
-        <%= button_to 'I Wanna Rent It!', new_equipment_booking_path(@equipment, @booking), method: :get, class: "btn btn-primary"%>
+        <% if @equipment.user == current_user %>
+          <p>This is your equipment</p>
+        <% else %>
+          <%= button_to 'I Wanna Rent It!', new_equipment_booking_path(@equipment, @booking), method: :get, class: "btn btn-primary"%>
+        <% end %>
         <br>
         <%= link_to "Back to postings", equipment_index_path, class:"padding-link"%>
       </div>
