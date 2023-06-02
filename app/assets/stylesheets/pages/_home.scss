@@ -7,14 +7,15 @@
 }
 
 .carousel-title {
-  color: white;
+  position: absolute;
+  top: 30%;
+  left: 10%;
+
+  h1 {
+  color: black;
   font-size: 50px;
   font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  text-align:center;
-  position: absolute;
-  top:48%;
-  left: 20%
+  }
 }
 
 .carousel-item{
@@ -22,4 +23,54 @@
   width: 100%;
   background-size: cover;
   position: relative
+}
+
+
+.carousel-title-light {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+
+  h1 {
+  color:#f1f1f1;
+  font-size: 50px;
+  font-weight: bold;
+  }
+
+  p{
+    color:#f1f1f1
+  }
+}
+
+.carousel-title-bg-overlay {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  background: #00000052;
+  text-shadow: 1px 1px 2px #000;
+  border-radius: 7px;
+  padding: 16px;
+
+  h1 {
+    color:#f1f1f1;
+    font-size: 50px;
+    font-weight: bold;
+    }
+
+    p{
+      color:#f1f1f1
+    }
+
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 6%;
 }

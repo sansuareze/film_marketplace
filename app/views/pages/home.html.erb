@@ -1,15 +1,30 @@
-
 <div id="carouselExample" class="carousel slide">
 
   <div class="carousel-inner" style="height:90vh">
-    <div class="carousel-item active" style="background-image:url('<%= image_path "camera.jpg"%>')">
-        <h2 class="carousel-title">Rent out the best Equipment with us</h2>
+    <div class="carousel-item active animate__animated animate__fadeIn  " style="background-image:url('<%= image_path "camera.jpg"%>')">
+      <div class="carousel-title animate__animated animate__bounceInDown animate__delay-0.5s">
+        <h1 >Cinema Equipment <br> Leasing Made Easy </h1>
+        <p>Pellentesque hendrerit, elit vel volutpat venenatis, <br>metus sem gravida orci,
+         ut vestibulum libero dolor ac arcu. </p>
+        <%= link_to "Start now", equipment_index_path(@equipment), class:"btn btn-lg btn-warning" %>
+      </div>
+
+
     </div>
     <div class="carousel-item"  style="background-image:url('<%= image_path "bild2.avif"%>')">
-      <h2 class="carousel-title">Enjoy and Mangiare</h2>
+       <div class="carousel-title-light">
+        <h1 >Have Film Equipment? <br> <small class=" animate__animated">Start renting today</small> </h1>
+
+        <%= link_to "Publish My Equipment", new_equipment_path, method: :get, class:"btn btn-lg btn-warning animate__animated animate__bounceInRight animate__delay-1.5s" %>
+      </div>
     </div>
     <div class="carousel-item" style="background-image:url('<%= image_path "bild3.avif"%>')">
-      <h2 class="carousel-title">Click Index to see the BEST items</h2>
+      <div class="carousel-title-bg-overlay">
+        <h1>Manage your Business Easily <br> <small>From your Dashboard</small> </h1>
+        <p>Pellentesque hendrerit, elit vel volutpat venenatis, <br>metus sem gravida orci,
+         ut vestibulum libero dolor ac arcu. </p>
+        <%= link_to "Sign up", equipment_index_path(@equipment), class:"btn btn-lg btn-warning" %>
+      </div>
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
