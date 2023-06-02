@@ -1,7 +1,6 @@
 
-<h2 class = "d-flex justify-content-center">Post a filming equipment you wish to sell!</h2>
-<br>
 <div class = "new-equipment-form">
+<h2 class = "d-flex justify-content-center my-4">Rent Out Your Equipment for Others</h2>
 <%= simple_form_for(@equipment) do |f| %>
   <%= f.input :photo, as: :file %>
 
@@ -17,6 +16,6 @@
 
   <%= f.input :state, collection: [["New", "new"], ["Used", "used"], ["Decayed", "decayed"]] %>
 
-  <%= f.submit "Post My Equipment", class: "btn btn-primary" %>
+  <%= f.submit "POST MY EQUIPMENT", class: "btn btn-primary" %>
 <% end %>
 </div>
