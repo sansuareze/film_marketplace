@@ -55,8 +55,7 @@
         <% if equipment.bookings.empty? %>
           <h2 class="d-none">You have no requests</h2>
         <% else %>
-          <h3 class="text-center">Waiting for your approval</h3>
-           <% equipment.bookings.each do |booking| %>
+          <% equipment.bookings.each do |booking| %>
             <div class="my-request">
             <p> Request by <b><%= booking.user.email %> </b></p>
                 <hr>
