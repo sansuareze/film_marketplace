@@ -11,7 +11,7 @@ This repository contains the codebase for the Film Equipment Marketplace, a plat
 ## Installation
 
 1. Clone this repository
-2. Install dependencies with `bundle install`
+2. Install dependencies with `bundle install` and `yarn install`
 3. Create a `.env` file and add your environment variables
 4. Run the server with `rails server`
 
