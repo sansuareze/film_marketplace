@@ -19,9 +19,6 @@ This repository contains the codebase for the Film Equipment Marketplace, a plat
 
 This project is open to contributions. Please follow the guidelines outlined in `CONTRIBUTING.md`.
 
-## License
-
-This project is licensed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
